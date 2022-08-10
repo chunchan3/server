@@ -13,8 +13,8 @@ app.use(express.json());
 
 app.get("/get", async(rqe,res)=>{
     try{
-        const results = await db.query("select * from bimart.movie")
-        console.log(results.rows),
+        const results = await db.query("select count(*) from bimart.movie")
+        console.log(results.rows[0]['count']),
     res.status(201).json({
         status:"success",
         data:{
